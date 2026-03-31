@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ember Web - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Ember Web</h1>
+        <div class="header-actions">
+            <button id="refresh-btn" class="btn btn-small" title="Refresh zones">Refresh</button>
+            <span id="connection-status" class="status-dot disconnected" title="WebSocket disconnected"></span>
+        </div>
+    </header>
+
+    <main class="dashboard" id="dashboard">
+        <div class="loading" id="loading">Loading zones...</div>
+    </main>
+
+    <!-- Zone card template -->
+    <template id="zone-template">
+        <div class="zone-card">
+            <div class="zone-header">
+                <h2 class="zone-name"></h2>
+                <span class="zone-status-badge"></span>
+            </div>
+
+            <div class="zone-temps">
+                <div class="temp-current">
+                    <span class="temp-label">Current</span>
+                    <span class="temp-value current-temp">--</span>
+                    <span class="temp-unit">&deg;C</span>
+                </div>
+                <div class="temp-target">
+                    <span class="temp-label">Target</span>
+                    <div class="temp-control">
+                        <button class="btn btn-round temp-down" title="Decrease">&minus;</button>
+                        <span class="temp-value target-temp">--</span>
+                        <span class="temp-unit">&deg;C</span>
+                        <button class="btn btn-round temp-up" title="Increase">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="zone-mode">
+                <label class="mode-label">Mode</label>
+                <div class="mode-buttons">
+                    <button class="btn btn-mode" data-mode="0">Auto</button>
+                    <button class="btn btn-mode" data-mode="1">All Day</button>
+                    <button class="btn btn-mode" data-mode="2">On</button>
+                    <button class="btn btn-mode" data-mode="3">Off</button>
+                </div>
+            </div>
+
+            <div class="zone-actions">
+                <button class="btn btn-boost" title="Boost for 1 hour">Boost 1h</button>
+                <button class="btn btn-boost" data-hours="2" title="Boost for 2 hours">Boost 2h</button>
+                <button class="btn btn-cancel-boost" title="Cancel boost" hidden>Cancel Boost</button>
+                <button class="btn btn-advance" title="Toggle advance">Advance</button>
+            </div>
+
+            <div class="zone-schedule" hidden>
+                <h3>Schedule</h3>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Period 1</th>
+                            <th>Period 2</th>
+                            <th>Period 3</th>
+                        </tr>
+                    </thead>
+                    <tbody class="schedule-body"></tbody>
+                </table>
+            </div>
+
+            <button class="btn btn-link toggle-schedule">Show Schedule</button>
+        </div>
+    </template>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
