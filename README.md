@@ -1,5 +1,12 @@
 # Ember Web
 
+> [!CAUTION]
+> **This project is very much a work in progress and is nowhere near working properly yet.** Expect broken features, incomplete functionality, and rough edges. Use at your own risk.
+
+This project would not have been possible without the excellent reverse-engineering work done in [pyephember](https://github.com/ttroy50/pyephember) by [@ttroy50](https://github.com/ttroy50). The API endpoints, MQTT protocol details, and binary data encoding used here are all derived from that project's documentation and source code.
+
+---
+
 A web-based dashboard for controlling EPH Controls Ember heating systems from a desktop browser. Communicates with the same cloud APIs as the official iOS Ember app, giving you full control of your heating zones without needing your phone.
 
 Built for the Ember PS (Programmer System) with GW01/GW04 gateway.
